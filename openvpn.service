@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenVPN
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/openvpn --daemon --cd /etc/openvpn/ --config config-name.ovpn
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
